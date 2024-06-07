@@ -49,7 +49,7 @@ const Hotels = () => {
    <>
       <div className='relative'>
          <form onSubmit={submitHandler}  className='my-3 mx-auto border rounded-md border-black w-2/3'>
-                  <input type="text" placeholder='search hotels by location...! (Hyderabad,Mumbai,Goa,Bangalore,tirupati)' 
+                  <input type="text" placeholder='search hotels by location...! (Hyderabad,Goa,Bangalore,tirupati)' 
                   className='form-control ' 
                   value={searchdata} onChange={e=>setSearchData(e.target.value)}/>
           </form>
