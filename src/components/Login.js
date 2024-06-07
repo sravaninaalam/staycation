@@ -11,7 +11,7 @@ const Login = () => {
     <>
     <ToastContainer theme='colored' position="top-right" limit={1}/>
       
-        <div className='bg-amber-700 h-11 '>
+        <div className='bg-blue-700 h-11 '>
             <h3 className='p-2 font-bold text-xl text-white font-serif'>Holi-Stay</h3>
        </div>
        <div className='fixed'>
