@@ -65,7 +65,7 @@ const Hotels = () => {
                   </div>
                   <div className='card-body d-flex flex-column'>
                 <Link to={'/bookroom/'+i.hotelName}><button className='bg-teal-400 font-semibold text-white p-2 m-2 float-right'>Book Room</button></Link>
-                  <Link to={'/moredetails/'+i.id} ><button className='bg-green-400 font-semibold text-white float-right p-2 m-2'>More details</button></Link>
+                  <Link to={'/moredetails/'+i.id} ><button className='bg-green-500 font-semibold text-white float-right p-2 m-2'>More details</button></Link>
                  <Link to={`/reviews/${i.hotelName}/${i.id}`} ><button className='bg-red-400 font-semibold text-white  float-right p-2 m-2'>View Review</button></Link>
                   </div>
              </div>
