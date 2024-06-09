@@ -47,7 +47,7 @@ if(!hotels) return
          <h6 className='ml-10 text-green-500 font-bold font-mono'>{room.cost}</h6>
 
         </div>)}
-      <Link state={hotels[hotelId-1]?.hotelName} to='/bookroom/:hotelId' className='text-white'><button className='p-2 m-2 rounded-md bg-green-500'>Bookroom</button></Link>
+      <Link to={'/bookroom/'+hotels[hotelId-1]?.hotelName} className='text-white'><button className='p-2 m-2 rounded-md bg-green-500'>Bookroom</button></Link>
     </div>
   )
 }
