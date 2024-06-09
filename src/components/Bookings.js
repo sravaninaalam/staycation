@@ -1,13 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {Link, useNavigate} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import { addBookingDetails, cancelBooking } from '../redux/bookingsSlice'
 
 import { API_OPTIONS_DELETE, Bookings_URL } from '../utils/consts'
 import {ToastContainer, toast} from 'react-toastify'
 
 const Bookings = () => {
-const[jsondata,setJsonDta]=useState([])
   const bookingsdata=useSelector(store=>store.bookings.bookingdetails)
   const dispatch=useDispatch()
  
@@ -22,7 +21,7 @@ const[jsondata,setJsonDta]=useState([])
   const cancelRoom=async(id)=>{
     dispatch(cancelBooking(id))
     try{
-  const res=await fetch(Bookings_URL+id,API_OPTIONS_DELETE)
+    await fetch(Bookings_URL+id,API_OPTIONS_DELETE)
   toast.success("Cancelation successfull")
     }
     catch(error){
