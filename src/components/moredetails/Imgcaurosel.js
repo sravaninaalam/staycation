@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { getLocalDetailsData } from '../../utils/helper'
 import Shimmer from '../Shimmer'
+import { useSelector } from 'react-redux'
 
 
 function Imgcaurosel() {
-  // const details=useSelector(store=>store.moredetails.hotel_details)
+  // const data=useSelector(store=>store.moredetails.hotel_details)
   // const[imgdata,setImgdata]=useState(details?.imgUrl)
+ 
   const data=getLocalDetailsData()
       const imgdata=data?.imgUrl
       const[index,setIndex]=useState(0)

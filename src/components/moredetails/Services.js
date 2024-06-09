@@ -1,13 +1,15 @@
+import { useSelector } from "react-redux"
 import { getLocalDetailsData } from "../../utils/helper"
 
 function Services() {
  const data=getLocalDetailsData()
+// const data=useSelector(store=>store.moredetails.hotel_details)
  const facilities=data?.facilities
   return (
     <div className='bg-white  mx-10 my-3 shadow-md relative'>
     <h4 className='p-2 mx-3  text-red-500 italic font-bold relative'>Services & Facilities</h4>
      <div className=' flex flex-wrap'>
-      {facilities.map((item,index)=><Facilities key={index} items={item}/>)}
+      {facilities?.map((item,index)=><Facilities key={index} items={item}/>)}
      </div>
 
     </div>
