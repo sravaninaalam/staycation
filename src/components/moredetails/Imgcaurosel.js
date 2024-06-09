@@ -8,7 +8,6 @@ function Imgcaurosel() {
   // const[imgdata,setImgdata]=useState(details?.imgUrl)
   const data=getLocalDetailsData()
       const imgdata=data?.imgUrl
-      console.log(imgdata,"imgdata")
       const[index,setIndex]=useState(0)
       if(!imgdata) return 0
       const total_imgs=imgdata.length

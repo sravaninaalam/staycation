@@ -9,7 +9,7 @@ const Hotels = () => {
   const[hoteldata,setHotelData]=useState([])
   const[clone,setClone]=useState([])
   const[currentpage,setCurrentPage]=useState(1)
-  const[postsPerPage,setPostsPerPage]=useState(6)
+  const postsPerPage=6
   const dispatch=useDispatch()
   useEffect(()=>{
       getHotelsFromApi()
@@ -45,7 +45,7 @@ const Hotels = () => {
  
   return (
    <>
-   {!hoteldata?<Shimmer/>:
+   {hoteldata===null?<Shimmer/>:
    <>
       <div className='relative'>
          <form onSubmit={submitHandler}  className='my-3 mx-auto border rounded-md border-black w-2/3'>

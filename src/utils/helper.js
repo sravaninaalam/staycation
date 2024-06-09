@@ -1,6 +1,3 @@
-import { useState } from "react"
-import { getMoreDetails } from "../redux/moredetailsSlice"
-
 export const getLocalDetailsData=()=>{
     const data= sessionStorage.getItem("moredetails")
     if(data){
@@ -20,4 +17,3 @@ export const getLocalDetailsData=()=>{
     }
   }
 
-  

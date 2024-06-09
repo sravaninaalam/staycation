@@ -2,11 +2,12 @@ import { getLocalDetailsData } from "../../utils/helper"
 
 function Services() {
  const data=getLocalDetailsData()
+ const facilities=data?.facilities
   return (
     <div className='bg-white  mx-10 my-3 shadow-md relative'>
     <h4 className='p-2 mx-3  text-red-500 italic font-bold relative'>Services & Facilities</h4>
      <div className=' flex flex-wrap'>
-      {data?.facilities.map((item,index)=><Facilities key={index} items={item}/>)}
+      {facilities.map((item,index)=><Facilities key={index} items={item}/>)}
      </div>
 
     </div>
@@ -18,6 +19,7 @@ export default Services
 
 
 export const Facilities = ({items}) => {
+  if(!items) return ''
     return (
       <div className=' relative mx-5 p-2 '>
         

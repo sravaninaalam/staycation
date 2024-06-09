@@ -5,7 +5,7 @@ import Shimmer from '../Shimmer'
 import { useDispatch } from 'react-redux'
 import { addHotelData } from '../../redux/hotelSlice'
 import { getMoreDetails } from '../../redux/moredetailsSlice'
-import {  getLocalHotelData } from '../../utils/helper'
+import {  getData, getLocalHotelData } from '../../utils/helper'
 import Rooms from './Rooms'
 import Nearby from './Nearby'
 
@@ -27,11 +27,10 @@ const Mainframe = () => {
     const json=await res.json()
     setData(json)
     dispatch(getMoreDetails(json))
-    console.log(json,"more details json")
     sessionStorage.setItem("moredetails",JSON.stringify(json))
 }
-
-  return !data?<Shimmer/>:(
+ if(data==null)return <Shimmer/>
+  return (
     <div className='relative'>
       <Topcontainer  id={hotelId} hoteldata={local}/>
       <Rooms/>
