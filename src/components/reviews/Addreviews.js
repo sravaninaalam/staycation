@@ -8,13 +8,13 @@ function Addreviews() {
         const[ip,setIp]=useState('')
     const[comments,setComments]=useState([])
     const[reviews,setReviews]=useState([])
-    const[isinput,setIsInput]=useState()
+    // const[isinput,setIsInput]=useState()
    const {id}=useParams()
    const inputRef=useRef(null)
    useEffect(()=>{
     inputRef.current.focus()
             getReviews()
-        },[isinput,id])
+        },[])
     
         async function getReviews(){
           const res=await fetch(Hotels_URL+id)
@@ -27,7 +27,7 @@ function Addreviews() {
                     const newIp={id:new Date().getTime().toString(),text:ip}
                     setComments([...comments,newIp])
                     setIp('')
-                    setIsInput(isinput+1)
+                    // setIsInput(isinput+1)
                 }
             }
            

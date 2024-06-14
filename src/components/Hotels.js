@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Shimmer from './Shimmer'
 import Pagination from './Pagination'
 import { Link } from 'react-router-dom'
@@ -10,11 +10,13 @@ const Hotels = () => {
   const[clone,setClone]=useState([])
   const[currentpage,setCurrentPage]=useState(1)
   const postsPerPage=6
+ const isdatafetchedRef=useRef(false)
+  
   const dispatch=useDispatch()
   useEffect(()=>{
       getHotelsFromApi()
-      
   },[])
+
   async function getHotelsFromApi(){
       const data=await fetch("https://hoteldata-b0ew.onrender.com/hotels")
       const json=await data.json()
@@ -22,6 +24,7 @@ const Hotels = () => {
       setClone(json)
       sessionStorage.setItem("myHotelData",JSON.stringify(json))
       dispatch(addHotelData(json))
+      isdatafetchedRef.current=true
   }
   const submitHandler=(e)=>{
    e.preventDefault()
@@ -32,20 +35,20 @@ const Hotels = () => {
      const res=clone.filter(item=>item.city.toLowerCase().replace(" ","").includes(searchdata))
      setHotelData(res)
      
-     
    }
    setSearchData('')
  }
  
-
-
   const lastIndex=currentpage*postsPerPage
   const firstIndex=lastIndex-postsPerPage
   const hotelsPerPage=hoteldata.slice(firstIndex,lastIndex)
  
+  if(!isdatafetchedRef.current){
+    return <Shimmer/>
+  }
   return (
    <>
-   {hoteldata===null?<Shimmer/>:
+   
    <>
       <div className='relative'>
          <form onSubmit={submitHandler}  className='my-3 mx-auto border rounded-md border-black w-2/3'>
@@ -74,7 +77,7 @@ const Hotels = () => {
        <Pagination totalLength={hoteldata.length} currentpage={currentpage}  setCurrentpage={setCurrentPage}
       postsPerPage={postsPerPage}/>
       </>
-      }
+      
    </>
   )
 }

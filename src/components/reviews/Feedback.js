@@ -27,8 +27,8 @@ const isSubmitRef=useRef(false)
              <input type='text'  className='border border-black ml-5 mt-1 rounded-md p-1 w-64'  
              value={ip} onChange={(e)=>setIp(e.target.value)} placeholder='Add a reply ...'/>
             <button onClick={()=>setreply(false)} className='mx-3 my-1'>Cancel</button>             
-            <button >Reply</button>
-             </form>}
+            <button type='submit'>send</button>
+          </form>}
              {isSubmitRef.current && <div className='border border-black rounded-lg'>
                       {replies.map(data=><Comment key={data.id} text={data.text}/>)}</div>}
     </div>
