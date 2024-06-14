@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { getLocalDetailsData } from '../../utils/helper'
 import Shimmer from '../Shimmer'
-import { useSelector } from 'react-redux'
 
 
 function Imgcaurosel() {

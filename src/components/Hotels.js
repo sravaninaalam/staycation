@@ -48,8 +48,6 @@ const Hotels = () => {
   }
   return (
    <>
-   
-   <>
       <div className='relative'>
          <form onSubmit={submitHandler}  className='my-3 mx-auto border rounded-md border-black w-2/3'>
                   <input type="text" placeholder='search hotels by location...! (Hyderabad,Goa,Bangalore,tirupati)' 
@@ -77,8 +75,7 @@ const Hotels = () => {
        <Pagination totalLength={hoteldata.length} currentpage={currentpage}  setCurrentpage={setCurrentPage}
       postsPerPage={postsPerPage}/>
       </>
-      
-   </>
+ 
   )
 }
 
