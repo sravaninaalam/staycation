@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import Shimmer from './Shimmer'
 import Pagination from './Pagination'
 import { Link } from 'react-router-dom'
@@ -13,19 +13,21 @@ const Hotels = () => {
  const isdatafetchedRef=useRef(false)
   
   const dispatch=useDispatch()
+
+  const getHotelsFromApi=useCallback(async()=>{
+    const data=await fetch("https://hoteldata-b0ew.onrender.com/hotels")
+    const json=await data.json()
+    setHotelData(json)
+    setClone(json)
+    sessionStorage.setItem("myHotelData",JSON.stringify(json))
+    dispatch(addHotelData(json))
+    isdatafetchedRef.current=true
+},[dispatch])
   useEffect(()=>{
       getHotelsFromApi()
-  },[])
+  },[getHotelsFromApi])
 
-  async function getHotelsFromApi(){
-      const data=await fetch("https://hoteldata-b0ew.onrender.com/hotels")
-      const json=await data.json()
-      setHotelData(json)
-      setClone(json)
-      sessionStorage.setItem("myHotelData",JSON.stringify(json))
-      dispatch(addHotelData(json))
-      isdatafetchedRef.current=true
-  }
+
   const submitHandler=(e)=>{
    e.preventDefault()
    if(!searchdata){

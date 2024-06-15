@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Hotels_URL, User_Icon } from '../../utils/consts'
 import Feedback from './Feedback'
@@ -11,16 +11,19 @@ function Addreviews() {
     // const[isinput,setIsInput]=useState()
    const {id}=useParams()
    const inputRef=useRef(null)
+   
+   const getReviews=useCallback(async()=>{
+    const res=await fetch(Hotels_URL+id)
+    const data=await res.json()
+    setReviews(data?.reviews)
+  },[id])
+
    useEffect(()=>{
     inputRef.current.focus()
             getReviews()
-        },[])
+        },[getReviews])
     
-        async function getReviews(){
-          const res=await fetch(Hotels_URL+id)
-          const data=await res.json()
-          setReviews(data?.reviews)
-        }
+      
     function handleSubmit(e){
               e.preventDefault()
                 if(ip){

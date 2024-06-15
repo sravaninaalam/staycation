@@ -6,11 +6,12 @@ import Shimmer from '../Shimmer'
 function Imgcaurosel() {
   // const data=useSelector(store=>store.moredetails.hotel_details)
   // const[imgdata,setImgdata]=useState(details?.imgUrl)
- 
-  const data=getLocalDetailsData()
+ const data=getLocalDetailsData()
+
       const imgdata=data?.imgUrl
       const[index,setIndex]=useState(0)
-      if(!imgdata) return 0
+
+      if(!imgdata) return 'Loading..'
       const total_imgs=imgdata.length
   function previousImg(){
     setIndex(index-1)
