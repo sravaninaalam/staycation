@@ -8,7 +8,7 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 const Register = () => {
   const navigate=useNavigate()
-  
+  const phoneRegex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
       
     return (
    <>
@@ -31,9 +31,8 @@ const Register = () => {
                 <Formik initialValues={{ name:"",address:"",phoneno:"",email:"",password:""}}
                  validationSchema={Yup.object({
                   name:Yup.string().required('Name is Required'),
-                  // phoneno:Yup.string()
-                  // .matches("^(+{1,2}?)?1?.??(?{3})?[.-]?{3}[.-]?\d{4}$","Please enter a valid number")
-                  // .required("").max(10,"should not exeed 10 numbers"),
+                  phoneno:Yup.string().matches(phoneRegex, "Invalid phone."),
+
                   email:Yup.string().required('').email('Invalid mail'),
                   password:Yup.string()
                   .matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$","Must contain at least one number and one uppercase and lowercase letter and one Special character, minimum 8 and maximum 16")
