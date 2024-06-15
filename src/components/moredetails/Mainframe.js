@@ -1,4 +1,4 @@
-import React, { useEffect} from 'react'
+import React, { useCallback, useEffect} from 'react'
 import Topcontainer from './Topcontainer'
 import { useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
@@ -15,16 +15,18 @@ const Mainframe = () => {
     const hotels_data=getLocalHotelData()
     if(hotels_data){dispatch(addHotelData(hotels_data))}
   
+    const getData=useCallback(async()=>{
+      const res=await fetch('https://hoteldata-b0ew.onrender.com/Details/'+hotelId)
+      const json=await res.json()
+      dispatch(getMoreDetails(json))
+      sessionStorage.setItem("moredetails",JSON.stringify(json))
+  },[dispatch,hotelId])
+
     useEffect(()=>{
       getData()  
-    },[])
+    },[getData])
 
- async function getData(){
-    const res=await fetch('https://hoteldata-b0ew.onrender.com/Details/'+hotelId)
-    const json=await res.json()
-    dispatch(getMoreDetails(json))
-    sessionStorage.setItem("moredetails",JSON.stringify(json))
-}
+
 
   return (
     <div className='relative'>
