@@ -31,7 +31,7 @@ const Register = () => {
                 <Formik initialValues={{ name:"",address:"",phoneno:"",email:"",password:""}}
                  validationSchema={Yup.object({
                   name:Yup.string().required('Name is Required'),
-                  phoneno:Yup.string().matches(phoneRegex, "Invalid phone."),
+                  phoneno:Yup.string().matches(phoneRegex, "Invalid number."),
 
                   email:Yup.string().required('').email('Invalid mail'),
                   password:Yup.string()
