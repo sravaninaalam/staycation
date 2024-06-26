@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { getLocalDetailsData } from '../../utils/helper'
 import Shimmer from '../Shimmer'
+import { useSelector } from 'react-redux'
 
 
 function Imgcaurosel() {
-  // const data=useSelector(store=>store.moredetails.hotel_details)
+  const data=useSelector(store=>store.moredetails.hotel_details)
   // const[imgdata,setImgdata]=useState(details?.imgUrl)
- const data=getLocalDetailsData()
+//  const data=getLocalDetailsData()
 
       const imgdata=data?.imgUrl
       const[index,setIndex]=useState(0)
@@ -26,7 +27,7 @@ function nextImg(){
         setIndex(total_imgs-index)
       }
 }
-if(!imgdata) return <Shimmer/>
+
   return (
     <div  className=' p-2  flex'>
     <button onClick={previousImg}>⬅️</button>
