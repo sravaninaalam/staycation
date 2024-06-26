@@ -4,6 +4,8 @@ import Pagination from './Pagination'
 import { Link } from 'react-router-dom'
 import {useDispatch} from 'react-redux'
 import { addHotelData } from '../redux/hotelSlice'
+import { filterTodos } from '../utils/helper'
+
 const Hotels = () => {
   const[searchdata,setSearchData]=useState('')
   const[hoteldata,setHotelData]=useState([])
@@ -34,9 +36,13 @@ const Hotels = () => {
      setHotelData(clone)
    }
    else{
-     const res=clone.filter(item=>item.city.toLowerCase().replace(" ","").includes(searchdata))
+    const res=filterTodos(clone,searchdata)
+    //  const res=clone.filter(item=>item.city.toLowerCase().replace(" ","").includes(searchdata))
      setHotelData(res)
-     
+
+    
+    //  filterTodos(clonedata,searchdata)=>
+      // function filterTodos(clone,search){ const res=clone.filter}
    }
    setSearchData('')
  }

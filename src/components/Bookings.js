@@ -12,7 +12,7 @@ const Bookings = () => {
  
   useEffect(()=>{
     getHotelBookings()
-  },[])
+  },[bookingsdata])
   const getHotelBookings=async()=>{
     const data=await fetch(Bookings_URL)
     const json=await data.json()

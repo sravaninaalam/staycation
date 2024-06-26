@@ -17,3 +17,8 @@ export const getLocalDetailsData=()=>{
     }
   }
 
+  export function filterTodos(clone,searchIp){
+    const resData=clone.filter(item=>item.city.toLowerCase().replace(" ","").includes(searchIp))
+    return resData
+  }
+  
