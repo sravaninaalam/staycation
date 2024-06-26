@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {Link} from 'react-router-dom'
 import { addBookingDetails, cancelBooking } from '../redux/bookingsSlice'
@@ -9,15 +9,16 @@ import {ToastContainer, toast} from 'react-toastify'
 const Bookings = () => {
   const bookingsdata=useSelector(store=>store.bookings.bookingdetails)
   const dispatch=useDispatch()
- 
-  useEffect(()=>{
-    getHotelBookings()
-  },[bookingsdata])
-  const getHotelBookings=async()=>{
+
+  const getHotelBookings=useCallback(async()=>{
     const data=await fetch(Bookings_URL)
     const json=await data.json()
     dispatch(addBookingDetails(json))
-  }
+  },[dispatch])
+  useEffect(()=>{
+    getHotelBookings()
+  },[getHotelBookings])
+ 
   const cancelRoom=async(id)=>{
     dispatch(cancelBooking(id))
     try{
