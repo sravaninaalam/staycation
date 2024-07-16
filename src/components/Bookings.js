@@ -23,7 +23,7 @@ const Bookings = () => {
   useEffect(()=>{
     getHotelBookings()
   },[bookingsdata])
-  
+
   const getHotelBookings=async()=>{
     const data=await fetch(Bookings_URL)
     const json=await data.json()
@@ -41,8 +41,11 @@ const Bookings = () => {
       toast.error(error)
     }
   }
-  if(!bookingsdata) return <div className='w-72 my-5 mx-auto bg-gray-300  p-5 '>
-      <h1>No bookins yet</h1>
+  
+  if(bookingsdata.length===0) return <div className=' relative  my-10 mx-9  p-3 '>
+      <h1 className=' italic font-mono text-red-800'>Sorry 😔 !! looks like you haven't book anything</h1>
+   <Link to='/hotels'><button className='p-2 m-2 rounded-md bg-teal-400 no-underline text-white font-bold'>Goto Hotels page</button></Link>
+
   </div>
   return (
     <>
