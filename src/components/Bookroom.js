@@ -12,7 +12,7 @@ const Bookroom = () => {
   
 
 const{hotelName}=useParams()
-
+// console.log("from second app hname is",hotelName)
   return (
    <>
    <ToastContainer theme='colored'/>
@@ -46,7 +46,7 @@ const{hotelName}=useParams()
                       )
                   toast.success("Room booking was succesful")
                  
-                 
+                //  console.log("from second app bookins",values)
                   navigate('/bookings')
                 }}
               >

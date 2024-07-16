@@ -6,18 +6,30 @@ import { addBookingDetails, cancelBooking } from '../redux/bookingsSlice'
 import { API_OPTIONS_DELETE, Bookings_URL } from '../utils/consts'
 import {ToastContainer, toast} from 'react-toastify'
 
+
 const Bookings = () => {
   const bookingsdata=useSelector(store=>store.bookings.bookingdetails)
   const dispatch=useDispatch()
+ 
+  // const getHotelBookings=useCallback(async()=>{
+  //   const data=await fetch(Bookings_URL)
+  //   const json=await data.json()
+  //   dispatch(addBookingDetails(json))
+  // },[dispatch])
+  // useEffect(()=>{
+  //   getHotelBookings()
+  // },[getHotelBookings])
 
-  const getHotelBookings=useCallback(async()=>{
+  useEffect(()=>{
+    getHotelBookings()
+  },[bookingsdata])
+  
+  const getHotelBookings=async()=>{
     const data=await fetch(Bookings_URL)
     const json=await data.json()
     dispatch(addBookingDetails(json))
-  },[dispatch])
-  useEffect(()=>{
-    getHotelBookings()
-  },[getHotelBookings])
+  }
+  
  
   const cancelRoom=async(id)=>{
     dispatch(cancelBooking(id))
