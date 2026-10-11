@@ -151,3 +151,5 @@ if (user) {
     </>
   )
 }
+
+export default Login
