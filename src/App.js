@@ -19,6 +19,7 @@ import { AuthProvider } from "./context/AuthContext"
 import ProtectedRoute from "./components/ProtectedRoute"
 import Welcome from "./components/Welcome"
 
+import "react-toastify/dist/ReactToastify.css"
 const Mainframe = lazy(() => import("./components/moredetails/Mainframe"))
 
 const App = () => {
