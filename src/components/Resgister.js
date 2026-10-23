@@ -1,11 +1,11 @@
 import { Formik, Form, ErrorMessage, Field } from "formik"
 import * as Yup from "yup"
-import { BG_IMG, SignUp_IMG, Users_URL } from "../utils/constants"
+import {  SignUp_IMG, Users_URL } from "../utils/constants"
 import { Link, Navigate, useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 import { apiFetch } from "../utils/api"
 import { useAuth } from "../context/AuthContext"
-
+import bgImg from '../../public/bgImg.jpg'
 const Resgister = () => {
   const navigate = useNavigate()
   const { user } = useAuth()
@@ -23,7 +23,7 @@ const Resgister = () => {
 
        
            <div className="fixed inset-0 -z-10">
-               <img src={BG_IMG} alt="" className="h-full w-full object-cover" />
+               <img src={bgImg} alt="" className="h-full w-full object-cover" />
                {/* dark overlay */}
                 <div className='absolute inset-0 bg-black/40'></div>
            </div>

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import { Link } from "react-router-dom"
-import { BG_IMG } from "../utils/constants"
+import bgImg from '../../public/bgImg.jpg'
 import { useAuth } from "../context/AuthContext"
 
 const Signout = () => {
@@ -17,7 +17,7 @@ const Signout = () => {
            </div> 
   
             <div className="fixed inset-0 -z-10">
-               <img src={BG_IMG} alt="" className="h-full w-full object-cover" />
+               <img src={bgImg} alt="" className="h-full w-full object-cover" />
                {/* dark overlay */}
                 <div className='absolute inset-0 bg-black/40'></div>
            </div>

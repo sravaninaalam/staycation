@@ -49,7 +49,7 @@ const Addreview = () => {
   
                  <Field as='textarea' name='review' className='w-96 mx-4 my-3  rounded-md p-2 h-28'></Field>
                 <p className='text-red-400'><ErrorMessage name='review'></ErrorMessage></p>
-                <button type='submit' className='rounded-md p-2 mx-3 mb-3 float-right bg-pink-500 font-bold text-white' >ADD Review</button>
+                <button type='submit' className='rounded-md p-2 mx-3 mb-3 float-right bg-amber-500 font-bold text-white' >ADD Review</button>
             </Form>
         </div>
        

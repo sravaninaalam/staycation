@@ -1,4 +1,4 @@
-export const BG_IMG='https://backwaterripples.com/wp-content/uploads/2025/09/best-resort-in-kerala-with-luxury.png'
+// export const BG_IMG='https://backwaterripples.com/wp-content/uploads/2025/09/best-resort-in-kerala-with-luxury.png'
 
 export const SignUp_IMG='https://cf.bstatic.com/xdata/images/hotel/max1024x768/896440258.jpg?k=dc548a01da71a254a106a81bfc20167da4bbeace3f96ad63f6562b321219be67&o='
 

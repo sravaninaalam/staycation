@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from "react"
 import ReactDOM from "react-dom/client"
 import Resgister from "./components/Resgister"
-import { BG_IMG } from "./utils/constants"
+// import { BG_IMG } from "./utils/constants"
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom"
 import Login from "./components/Login"
 import Home from "./components/Home"
@@ -18,6 +18,7 @@ import { ToastContainer } from "react-toastify"
 import { AuthProvider } from "./context/AuthContext"
 import ProtectedRoute from "./components/ProtectedRoute"
 import Welcome from "./components/Welcome"
+import bgImg from  '../public/bgImg.jpg'
 
 import "react-toastify/dist/ReactToastify.css"
 const Mainframe = lazy(() => import("./components/moredetails/Mainframe"))
@@ -27,7 +28,7 @@ const App = () => {
     <div className="min-h-screen">
       <Header />
       <div className="fixed inset-0 -z-10">
-        <img src={BG_IMG} alt="" className="h-screen w-screen object-cover" />
+        <img src={bgImg} alt="" className="h-screen w-screen object-cover" />
       </div>
       <Outlet />
     </div>

@@ -1,5 +1,5 @@
 
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import { useAuth } from "../context/AuthContext"
 
 const Header = () => {
@@ -11,27 +11,39 @@ const Header = () => {
       <nav>
         <ul className="flex items-center gap-2">
           <li className="px-4 font-medium">
-            <Link to="/home" className="no-underline text-white">
+            <NavLink to="/home"   className={({ isActive }) =>
+                                    isActive
+                                      ? "text-amber-400 border-b-2 border-amber-400"
+                                      : "text-white hover:text-amber-300"}>
               Home
-            </Link>
+            </NavLink>
           </li>
           <li className="px-4 font-medium">
-            <Link to="/hotels" className="no-underline text-white ">
+            <NavLink to="/hotels"   className={({ isActive }) =>
+                                        isActive
+                                          ? "text-amber-400 border-b-2 border-amber-400"
+                                          : "text-white hover:text-amber-300"}>
               Hotels
-            </Link>
+            </NavLink>
           </li>
           <li className="px-4 font-medium">
-            <Link to="/bookings" className="no-underline text-white ">
+            <NavLink to="/bookings"   className={({ isActive }) =>
+                                          isActive
+                                            ? "text-amber-400 border-b-2 border-amber-400"
+                                            : "text-white hover:text-amber-300" }>
               Bookings
-            </Link>
+            </NavLink>
           </li>
           {user?.name && (
             <li className="px-4 text-white text-sm hidden sm:block">Hi, {user.name}</li>
           )}
           <li className="px-4 font-medium">
-            <Link to="/logout" className="no-underline text-white ">
+            <NavLink to="/logout"   className={({ isActive }) =>
+                                                isActive
+                                                  ? "text-amber-400 border-b-2 border-amber-400"
+                                                  : "text-white hover:text-amber-300"}>
               Logout
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </nav>

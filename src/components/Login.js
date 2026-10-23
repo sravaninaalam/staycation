@@ -1,13 +1,13 @@
 
 
-import { BG_IMG, SignUp_IMG, Users_URL } from "../utils/constants"
+import {  SignUp_IMG, Users_URL } from "../utils/constants"
 import * as Yup from "yup"
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom"
 import { ErrorMessage, Field, Form, Formik } from "formik"
 import { toast } from "react-toastify"
 import { apiFetch } from "../utils/api"
 import { useAuth } from "../context/AuthContext"
-
+import bgImg from '../../public/bgImg.jpg'
 
 function Login() {
     const navigate = useNavigate()
@@ -26,7 +26,7 @@ if (user) {
   {/* Background */}
   <div className="fixed inset-0 z-0">
     <img
-      src={BG_IMG}
+      src={bgImg}
       alt=""
       className=" h-full w-full object-cover"
     />
